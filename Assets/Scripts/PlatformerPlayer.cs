@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlatformerPlayer : MonoBehaviour
 {
     public float speed = 4.5f;
@@ -12,7 +13,10 @@ public class PlatformerPlayer : MonoBehaviour
     public float dashforce = 60.0f;
     public int dashCount = 1;
 
+    public int health = 4;
+
     public ScoreManager scoreBoard;
+    public HealthLabel healthLabel;
 
     //gets reference to the desired componenent of the player character
     private Rigidbody2D body;
@@ -100,7 +104,19 @@ public class PlatformerPlayer : MonoBehaviour
         if(other.gameObject.CompareTag("Point")){
             Destroy(other.gameObject);
             scoreBoard.score++;
+            healthLabel.health++;
             //scoreBoard.scoreUpdate();
         }
+        if(other.gameObject.CompareTag("Pineapple")){
+            Destroy(other.gameObject);
+            scoreBoard.score+=2;
+            healthLabel.health+=2;
+        }
+        if(other.gameObject.CompareTag("Spike")) {
+            healthLabel.health--;
+            scoreBoard.score--;
+        }
+
     }
+
 }
