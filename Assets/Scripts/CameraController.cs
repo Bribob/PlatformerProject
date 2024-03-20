@@ -14,15 +14,4 @@ public class CameraController : MonoBehaviour
         Vector3 targetPosition = new Vector3(target.position.x, target.position.y, target.position.z - 10);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
