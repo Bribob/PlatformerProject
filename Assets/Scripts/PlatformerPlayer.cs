@@ -12,6 +12,8 @@ public class PlatformerPlayer : MonoBehaviour
     public float dashforce = 60.0f;
     public int dashCount = 1;
 
+    public ScoreManager scoreBoard;
+
     //gets reference to the desired componenent of the player character
     private Rigidbody2D body;
     private Animator anim;
@@ -92,6 +94,13 @@ public class PlatformerPlayer : MonoBehaviour
         }
         if (!Mathf.Approximately(deltaX, 0)) {
             transform.localScale = new Vector3(Mathf.Sign(deltaX) / playerScale.x, 1 / playerScale.y, 1);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Point")){
+            Destroy(other.gameObject);
+            scoreBoard.score++;
+            //scoreBoard.scoreUpdate();
         }
     }
 }

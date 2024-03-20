@@ -376,6 +376,7 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/MovingPlatform.cs"
 "Assets/Scripts/PlatformerPlayer.cs"
+"Assets/Scripts/ScoreManager.cs"
 -langversion:9.0
 
 /deterministic
